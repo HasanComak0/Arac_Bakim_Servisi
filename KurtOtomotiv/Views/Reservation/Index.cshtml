@@ -1,5 +1,201 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model KurtOtomotiv.Models.ReservationViewModel
 @{
+    ViewData["Title"] = "Servis Randevusu";
 }
+
+<section class="reservation-hero">
+    <div class="container">
+        <div class="reservation-hero-content">
+            <span class="reservation-eyebrow">
+                <i class="bi bi-calendar-check"></i>
+                KURT OTOMOTİV
+            </span>
+
+            <h1>Servis randevunuzu <span>oluşturun.</span></h1>
+
+            <p>
+                Aracınız için ihtiyaç duyduğunuz servis hizmetini seçin.
+                Bilgilerinizi iletin, randevu talebinizi birlikte netleştirelim.
+            </p>
+
+            <div class="reservation-hero-points">
+                <span><i class="bi bi-check-circle"></i> Kolay başvuru</span>
+                <span><i class="bi bi-check-circle"></i> Araç bilgileri</span>
+                <span><i class="bi bi-check-circle"></i> Hizmet seçimi</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reservation-main section-spacing">
+    <div class="container">
+        <div class="reservation-layout">
+
+            <div class="reservation-form-panel">
+                <div class="reservation-form-heading">
+                    <span class="maintenance-label">RANDEVU TALEBİ</span>
+                    <h2>Randevu bilgileri</h2>
+                    <p>Formdaki alanları doldurarak talebinizi hazırlayın.</p>
+                </div>
+
+                <form asp-controller="Reservation"
+                      asp-action="Create"
+                      method="post">
+
+                    <div class="reservation-form-section">
+                        <h3><i class="bi bi-person"></i> İletişim bilgileriniz</h3>
+
+                        <div class="reservation-form-grid">
+                            <div class="reservation-field">
+                                <label for="fullName">Ad Soyad *</label>
+                                <input type="text" id="fullName"
+                                       name="FullName"
+                                       placeholder="Adınızı ve soyadınızı girin"
+                                        />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+
+                            <div class="reservation-field">
+                                <label for="phone">Telefon numarası *</label>
+                                <input type="tel" id="phone"
+                                       name="Phone"
+                                       placeholder="05XX XXX XX XX"
+                                       required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reservation-form-section">
+                        <h3><i class="bi bi-car-front"></i> Araç bilgileriniz</h3>
+
+                        <div class="reservation-form-grid">
+                            <div class="reservation-field">
+                                <label for="brand">Araç markası *</label>
+                                <input type="text" id="brand"
+                                       name="VehicleBrand"
+                                       placeholder="Örn. Renault"
+                                       required />
+                                       <!--Buralara Validasyonları giricez Tarih seçmede ve Ad Soyad seçmede var öyleli olcak-->
+                            </div>
+
+                            <div class="reservation-field">
+                                <label for="model">Araç modeli *</label>
+                                <input type="text" id="model"
+                                       name="VehicleModel"
+                                       placeholder="Örn. Megane"
+                                       required />
+                            </div>
+
+                            <div class="reservation-field reservation-field-full">
+                                <label for="plate">Plaka</label>
+                                <input type="text" id="plate"
+                                       name="Plate"
+                                       placeholder="Örn. 59 ABC 123" />
+                                <small>Plaka bilgisi isteğe bağlıdır.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reservation-form-section">
+                        <h3><i class="bi bi-wrench-adjustable"></i> Servis bilgileri</h3>
+
+                        <div class="reservation-form-grid">
+                            <div class="reservation-field">
+                                <label for="service">Hizmet türü *</label>
+                                <select id="service" name="ServiceType" required>
+                                    <option value="">Hizmet seçin</option>
+                                    <option value="Oto Servis">Oto Servis</option>
+                                    <option value="Araç Bakımı">Araç Bakımı</option>
+                                    <option value="Arıza Tespiti">Arıza Tespiti</option>
+                                    <option value="Diğer">Diğer</option>
+                                </select>
+                            </div>
+
+                            <div class="reservation-field">
+                                <label for="date">Tercih edilen tarih *</label>
+                                <input type="date" id="date"
+                                       name="PreferredDate"
+                                       min="@DateTime.Today.ToString("yyyy-MM-dd")"
+                                       />
+                                       <span asp-validation-for="PreferredDate"
+                                                class="text-danger"></span>
+                            </div>
+
+                            <div class="reservation-field reservation-field-full">
+                                <label for="message">Ek açıklama</label>
+                                <textarea id="message" name="Message"
+                                          rows="4"
+                                          placeholder="Aracınızdaki sorunu veya belirtmek istediğiniz detayları yazabilirsiniz."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reservation-form-note">
+                        <i class="bi bi-info-circle"></i>
+                        <p>
+                            Seçtiğiniz tarih bir randevu talebidir.
+                            Kesin randevu saati ve uygunluk işletmeyle görüşülerek netleştirilmelidir.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="reservation-submit-button"
+                            >
+                        <i class="bi bi-calendar-check"></i>
+                        Randevu Talebi Oluştur
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+
+            <aside class="reservation-sidebar">
+                <div class="reservation-side-card reservation-process-card">
+                    <span class="maintenance-label">NASIL ÇALIŞIR?</span>
+                    <h3>Randevu süreci</h3>
+
+                    <div class="reservation-step">
+                        <span>01</span>
+                        <div>
+                            <h4>Bilgilerinizi girin</h4>
+                            <p>İletişim ve araç bilgilerinizi doldurun.</p>
+                        </div>
+                    </div>
+
+                    <div class="reservation-step">
+                        <span>02</span>
+                        <div>
+                            <h4>Hizmetinizi seçin</h4>
+                            <p>İhtiyacınıza uygun servis türünü belirtin.</p>
+                        </div>
+                    </div>
+
+                    <div class="reservation-step">
+                        <span>03</span>
+                        <div>
+                            <h4>Randevuyu netleştirin</h4>
+                            <p>Tercih ettiğiniz tarih için işletmeyle görüşün.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reservation-side-card reservation-contact-card">
+                    <div class="reservation-contact-icon">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <h3>Yardım mı gerekiyor?</h3>
+                    <p>Randevu ve servis hizmetleri hakkında bilgi almak için iletişim sayfamızı ziyaret edin.</p>
+
+                    <a asp-controller="Contact" asp-action="Index">
+                        İletişim sayfası
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </div>
+
+                <div class="reservation-side-reminder">
+                    <i class="bi bi-car-front-fill"></i>
+                    <p>Aracınızın marka, model ve yaşadığı sorunu önceden belirtmeniz, servis ihtiyacının daha iyi anlaşılmasına yardımcı olur.</p>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</section>

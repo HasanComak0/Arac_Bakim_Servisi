@@ -1,5 +1,140 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "İletişim";
 }
+
+<!-- SAYFA BAŞLIĞI -->
+<section class="contact-hero">
+    <div class="container">
+        <span class="contact-eyebrow">KURT OTOMOTİV</span>
+
+        <h1>Bizimle İletişime Geçin</h1>
+
+        <p>
+            Adresimizi görüntüleyin, yol tarifi alın veya
+            servis ihtiyaçlarınız hakkında bizimle iletişime geçin.
+        </p>
+    </div>
+</section>
+
+
+<!-- İLETİŞİM BİLGİLERİ -->
+<section class="contact-main section-spacing">
+    <div class="container">
+
+        <div class="contact-section-heading">
+            <span class="maintenance-label">BİZE ULAŞIN</span>
+            <h2>Size nasıl yardımcı olabiliriz?</h2>
+            <p>
+                Bizi ziyaret edebilir veya aşağıdaki iletişim
+                bilgilerinden bize ulaşabilirsiniz.
+            </p>
+        </div>
+
+        <div class="contact-info-grid">
+
+            <!-- ADRES -->
+            <article class="contact-info-card">
+                <div class="contact-info-icon">
+                    <i class="bi bi-geo-alt"></i>
+                </div>
+
+                <h3>Adresimiz</h3>
+
+                <p>
+                    Büyük Cami Mahallesi, Zanaatkarlar Caddesi,
+                    E-Blok No: 5, Keşan / Edirne
+                </p>
+
+                <a href="https://www.google.com/maps/dir/?api=1&destination=40.8612572%2C26.6188572"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Yol Tarifi Al
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+            </article>
+
+
+            <!-- TELEFON -->
+            <article class="contact-info-card">
+                <div class="contact-info-icon">
+                    <i class="bi bi-telephone"></i>
+                </div>
+
+                <h3>Telefon</h3>
+
+                <p>
+                    Servis ve bakım işlemleri hakkında
+                    bilgi almak için bizi arayabilirsiniz.
+                </p>
+
+                <!-- Gerçek telefon numarasıyla değiştir -->
+                <a href="tel:+905353256709" class="contact-value">
+                    <i class="bi bi-telephone"></i>
+                    0535 325 67 09
+                </a>
+            </article>
+
+
+            <!-- ÇALIŞMA SAATLERİ -->
+            <article class="contact-info-card">
+                <div class="contact-info-icon">
+                    <i class="bi bi-clock"></i>
+                </div>
+
+                <h3>Çalışma Saatleri</h3>
+
+                <p>
+                    Bizi ziyaret etmeden önce çalışma
+                    saatlerimizi öğrenebilirsiniz.
+                </p>
+
+                <span class="contact-value">
+                    <i class="bi bi-clock"></i>
+                    08:00 – 20:00
+                </span>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- HARİTA -->
+<section class="contact-map-section">
+    <div class="container">
+
+        <div class="contact-map-heading">
+            <div>
+                <span class="maintenance-label">BİZİ BULUN</span>
+                <h2>Konumumuz</h2>
+                <p>
+                    Kurt Otomotiv Bakım & Onarım Merkezi
+                    için harita üzerinden konumumuzu görüntüleyin.
+                </p>
+            </div>
+
+            <a class="contact-map-button"
+               href="https://www.google.com/maps/dir/?api=1&destination=40.8612572%2C26.6188572"
+               target="_blank"
+               rel="noopener noreferrer">
+                <i class="bi bi-sign-turn-right"></i>
+                Yol Tarifi Al
+            </a>
+        </div>
+
+        <div class="contact-map-frame">
+            <iframe src="https://maps.google.com/maps?q=40.8612572%2C26.6188572&z=16&output=embed"
+                    title="Kurt Otomotiv konumu"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <p class="contact-map-caption">
+            Büyük Cami Mahallesi, Zanaatkarlar Caddesi,
+            E-Blok No: 5, Keşan / Edirne
+        </p>
+
+    </div>
+</section>

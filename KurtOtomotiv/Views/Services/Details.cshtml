@@ -1,237 +1,250 @@
 ﻿@model KurtOtomotiv.Models.ServiceViewModel
 
 @{
-    ViewData["Title"] = "Oto Servis";
+    ViewData["Title"] = Model.Title;
 }
 
-<section class="service-detail-page">
+<!-- HİZMET DETAY HERO -->
+<section class="service-detail-hero">
+    <div class="container">
 
-    <!-- ÜST ALAN -->
-    <div class="service-detail-header">
-        <div class="container">
+        <div class="service-detail-hero-content">
 
             <a asp-controller="Services"
                asp-action="Index"
-               class="back-to-services">
-
+               class="service-detail-back">
                 <i class="bi bi-arrow-left"></i>
                 Tüm Hizmetler
+            </a>
 
+            <span class="service-detail-eyebrow">
+                KURT OTOMOTİV · SERVİS VE BAKIM
+            </span>
+
+            <h1>@Model.Title</h1>
+
+            <p>@Model.Description</p>
+
+            <div class="service-detail-hero-actions">
+                <a asp-controller="Contact"
+                   asp-action="Index"
+                   class="service-detail-primary-button">
+                    <i class="bi bi-telephone"></i>
+                    İletişime Geç
+                </a>
+
+                <a href="#yapilan-islemler"
+                   class="service-detail-secondary-button">
+                    Yapılan İşlemler
+                    <i class="bi bi-arrow-down"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="service-detail-hero-visual">
+
+            <img src="@Model.ImageUrl"
+                 alt="@Model.Title"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+
+            <div class="service-detail-image-fallback">
+                <i class="bi bi-tools"></i>
+                <span>@Model.Title</span>
+            </div>
+
+            <div class="service-detail-image-caption">
+                <i class="bi bi-wrench-adjustable-circle"></i>
+                <span>Servis ve bakım hizmetleri</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- HİZMET AÇIKLAMASI -->
+<section class="service-detail-overview section-spacing">
+    <div class="container">
+
+        <div class="service-overview-layout">
+
+            <div class="service-overview-heading">
+                <span class="maintenance-label">HİZMET HAKKINDA</span>
+
+                <h2>
+                    @Model.Title hizmeti hakkında bilmeniz gerekenler
+                </h2>
+            </div>
+
+            <div class="service-overview-description">
+                <p>@Model.Description</p>
+
+                <p>
+                    Yapılacak işlemler aracın mevcut durumuna,
+                    marka ve modeline ve tespit edilen ihtiyaçlara
+                    göre değişebilir. Aracınıza uygun hizmetin kapsamı
+                    için bizimle iletişime geçebilirsiniz.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- YAPILAN İŞLEMLER -->
+<section class="service-detail-operations section-spacing"
+         id="yapilan-islemler">
+
+    <div class="container">
+
+        <div class="service-detail-section-heading">
+            <span class="maintenance-label">SERVİS KAPSAMI</span>
+
+            <h2>Bu hizmet kapsamında</h2>
+
+            <p>
+                @Model.Title hizmetiyle ilişkili temel işlem ve
+                kontrol başlıklarını aşağıda inceleyebilirsiniz.
+            </p>
+        </div>
+
+        <div class="service-operation-grid">
+
+            @for (var i = 0; i < Model.Features.Count; i++)
+            {
+                <article class="service-operation-card">
+
+                    <div class="service-operation-top">
+                        <div class="service-operation-icon">
+                            <i class="bi bi-check2-circle"></i>
+                        </div>
+
+                        <span>
+                            @((i + 1).ToString("D2"))
+                        </span>
+                    </div>
+
+                    <h3>@Model.Features[i]</h3>
+
+                    <p>
+                        Bu işlem aracın ihtiyacına göre değerlendirilir.
+                        Kontrolün kapsamı ve gerekli uygulamalar,
+                        aracın durumuna göre belirlenir.
+                    </p>
+
+                </article>
+            }
+
+        </div>
+
+        <div class="service-operation-note">
+            <i class="bi bi-info-circle"></i>
+
+            <p>
+                Bu listedeki başlıklar genel bilgilendirme amaçlıdır.
+                Her işlemin her araçta gerekli olacağı anlamına gelmez.
+                İşletmede sunulan hizmetleri ve kapsamlarını önceden
+                teyit etmenizi öneririz.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SERVİS SÜRECİ -->
+<section class="service-detail-process section-spacing">
+    <div class="container">
+
+        <div class="service-detail-section-heading">
+            <span class="maintenance-label">SERVİS SÜRECİ</span>
+
+            <h2>Nasıl ilerleyebilirsiniz?</h2>
+
+            <p>
+                Servis ihtiyacınızı belirlemekten yapılacak işlemleri
+                öğrenmeye kadar izleyebileceğiniz temel adımlar.
+            </p>
+        </div>
+
+        <div class="service-process-grid">
+
+            <article class="service-process-item">
+                <span class="service-process-number">01</span>
+
+                <i class="bi bi-chat-square-text"></i>
+
+                <h3>İhtiyacınızı anlatın</h3>
+
+                <p>
+                    Aracınızın durumunu ve yaşadığınız sorunu
+                    işletmeye iletin.
+                </p>
+            </article>
+
+            <article class="service-process-item">
+                <span class="service-process-number">02</span>
+
+                <i class="bi bi-search"></i>
+
+                <h3>Gerekli kontrolleri öğrenin</h3>
+
+                <p>
+                    Aracınıza uygun inceleme ve servis işlemleri
+                    hakkında bilgi alın.
+                </p>
+            </article>
+
+            <article class="service-process-item">
+                <span class="service-process-number">03</span>
+
+                <i class="bi bi-clipboard-check"></i>
+
+                <h3>İşlemleri netleştirin</h3>
+
+                <p>
+                    Yapılacak işlemleri ve servis koşullarını
+                    uygulama öncesinde görüşün.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ALT CTA -->
+<section class="service-detail-bottom-cta">
+    <div class="container">
+
+        <div class="service-detail-bottom-cta-inner">
+
+            <div>
+                <span>KURT OTOMOTİV</span>
+
+                <h2>
+                    @Model.Title hakkında bilgi almak ister misiniz?
+                </h2>
+
+                <p>
+                    Aracınıza uygun hizmetin kapsamını öğrenmek
+                    için bizimle iletişime geçebilirsiniz.
+                </p>
+            </div>
+
+            <a asp-controller="Contact"
+               asp-action="Index"
+               class="service-detail-cta-button">
+                İletişime Geç
+                <i class="bi bi-arrow-right"></i>
             </a>
 
         </div>
+
     </div>
-
-
-    <!-- HİZMET İÇERİĞİ -->
-    <section class="service-detail-content">
-
-        <div class="container">
-
-            <div class="row g-5 align-items-center">
-
-                <!-- GÖRSEL -->
-                <div class="col-12 col-lg-6">
-
-                    <div class="service-detail-image">
-
-                        <img src="@Model.ImageUrl"
-                             alt="@Model.Title">
-
-                    </div>
-
-                </div>
-
-
-                <!-- BAŞLIK / AÇIKLAMA -->
-                <div class="col-12 col-lg-6">
-
-                    <span class="section-small-title">
-                        KURT OTOMOTİV
-                    </span>
-
-                    <h1 class="service-detail-title">
-                        @Model.Title
-                    </h1>
-
-                    <p class="service-detail-description">
-                        @Model.Description
-                    </p>
-
-                    <a href="#"
-                       class="detail-cta-button">
-
-                        Servis Randevusu Al
-                        <i class="bi bi-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- YAPILAN İŞLEMLER -->
-    <section class="service-detail-features">
-
-        <div class="container">
-
-            <div class="text-center mb-5">
-
-                <span class="section-small-title">
-                    SERVİS VE BAKIM
-                </span>
-
-                <h2 class="section-title">
-                    Yaptığımız İşlemler
-                </h2>
-
-                <p class="section-description">
-                    Aracınızın ihtiyaçlarına yönelik sunduğumuz
-                    temel servis ve bakım işlemleri.
-                </p>
-
-            </div>
-
-
-            <div class="row g-4">
-
-                @foreach (var feature in Model.Features)
-                {
-                    <div class="col-12 col-md-6">
-
-                        <div class="feature-item">
-
-                            <div class="feature-icon">
-                                <i class="bi bi-check-lg"></i>
-                            </div>
-
-                            <div>
-                                <h3>
-                                    @feature
-                                </h3>
-
-                                <p>
-                                    Aracınızın güvenli ve sorunsuz kullanımı
-                                    için gerekli kontrol ve servis işlemi.
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                }
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- NEDEN BİZ -->
-    <section class="why-us-section">
-
-        <div class="container">
-
-            <div class="row align-items-center g-5">
-
-                <div class="col-12 col-lg-6">
-
-                    <span class="section-small-title">
-                        KURT OTOMOTİV
-                    </span>
-
-                    <h2 class="section-title text-start">
-                        Neden Bizi Tercih Etmelisiniz?
-                    </h2>
-
-                    <p class="why-us-text">
-                        Aracınızın bakım ve servis işlemlerinde
-                        güvenilir, şeffaf ve profesyonel bir hizmet
-                        sunmayı amaçlıyoruz.
-                    </p>
-
-                </div>
-
-
-                <div class="col-12 col-lg-6">
-
-                    <div class="why-us-list">
-
-                        <div class="why-us-item">
-                            <i class="bi bi-check-circle"></i>
-                            <span>
-                                Profesyonel servis hizmeti
-                            </span>
-                        </div>
-
-                        <div class="why-us-item">
-                            <i class="bi bi-check-circle"></i>
-                            <span>
-                                Deneyimli ekip
-                            </span>
-                        </div>
-
-                        <div class="why-us-item">
-                            <i class="bi bi-check-circle"></i>
-                            <span>
-                                Şeffaf servis süreci
-                            </span>
-                        </div>
-
-                        <div class="why-us-item">
-                            <i class="bi bi-check-circle"></i>
-                            <span>
-                                Müşteri memnuniyeti odaklı hizmet
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ALT RANDEVU -->
-    <section class="service-detail-cta">
-
-        <div class="container">
-
-            <div class="service-detail-cta-box">
-
-                <div>
-                    <h2>
-                        Aracınız için servis desteğine mi ihtiyacınız var?
-                    </h2>
-
-                    <p>
-                        Size uygun tarih ve saati seçerek randevunuzu
-                        oluşturabilirsiniz.
-                    </p>
-                </div>
-
-                <a href="#"
-                   class="detail-cta-button white">
-
-                    Randevu Al
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
 </section>

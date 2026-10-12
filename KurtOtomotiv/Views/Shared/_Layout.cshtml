@@ -113,21 +113,9 @@
                     </li>
 
 
-                    <!-- REZERVASYON -->
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="#">
-
-                            Rezervasyon
-
-                        </a>
-
-                    </li>
 
 
-                    <!-- SERVİS & BAKIM -->
+                    <!-- ARAÇ BAKIM REHBERİ -->
 
                     <li class="nav-item">
 
@@ -139,16 +127,24 @@
 
                     </li>
 
+                    <!-- REZERVASYON -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           asp-controller="Reservation"
+                           asp-action="Index">Rezervasyon</a>
+
+                    </li>
 
                     <!-- İLETİŞİM -->
 
                     <li class="nav-item">
 
                         <a class="nav-link"
-                           href="#">
-
+                           asp-controller="Contact"
+                           asp-action="Index">
                             İletişim
-
                         </a>
 
                     </li>
@@ -228,19 +224,23 @@
                         </li>
 
                         <li>
-                            <a href="#">
-                                Rezervasyon
+                            <a 
+                               asp-controller="Maintenance"
+                               asp-action="Index">
+                                Araç Bakım Rehberi
                             </a>
                         </li>
 
                         <li>
-                            <a href="#">
-                                Servis & Bakım
-                            </a>
+                            <a 
+                               asp-controller="Reservation"
+                               asp-action="Index">Rezervasyon</a>
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a 
+                               asp-controller="Contact"
+                               asp-action="Index">
                                 İletişim
                             </a>
                         </li>
@@ -260,7 +260,7 @@
 
                     <p>
                         <i class="bi bi-telephone"></i>
-                        0535 XXX XX XX
+                        0535 325 67 09
                     </p>
 
                     <p>
