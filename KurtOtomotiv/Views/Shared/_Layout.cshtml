@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @ViewData["Title"] - Kurt Otomotiv
+    </title>
+
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+
+
+    <!-- Bootstrap Icons -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <!-- Kendi CSS -->
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white main-navbar">
+
+        <div class="container">
+
+
+            <!-- LOGO -->
+
+            <a class="navbar-brand"
+               asp-controller="Home"
+               asp-action="Index">
+
+                <img src="~/images/logo.png"
+                     alt="Kurt Otomotiv"
+                     class="logo">
+
+            </a>
+
+
+            <!-- MOBİL MENÜ -->
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainMenu"
+                    aria-controls="mainMenu"
+                    aria-expanded="false"
+                    aria-label="Menüyü aç">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- MENÜ -->
+
+            <div class="collapse navbar-collapse"
+                 id="mainMenu">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                    <!-- ANASAYFA -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           asp-controller="Home"
+                           asp-action="Index">
+
+                            Anasayfa
+
+                        </a>
+
+                    </li>
+
+
+                    
+
+
+                    <!-- HİZMETLER -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           asp-controller="Services"
+                           asp-action="Index">
+
+                            Hizmetlerimiz
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- REZERVASYON -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="#">
+
+                            Rezervasyon
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- SERVİS & BAKIM -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           asp-controller="Maintenance"
+                           asp-action="Index">
+                            Araç Bakım Rehberi
+                        </a>
+
+                    </li>
+
+
+                    <!-- İLETİŞİM -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="#">
+
+                            İletişim
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         SAYFA İÇERİĞİ
+    ========================== -->
+
+    <main>
+
+        @RenderBody()
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+
+                <!-- HAKKIMIZDA -->
+
+                <div class="col-12 col-md-6">
+
+                    <img src="~/images/logo.png"
+                         alt="Kurt Otomotiv"
+                         class="footer-logo">
+
+                    <p>
+                        Kurt Otomotiv olarak araç bakım ve onarım
+                        hizmetlerinde kaliteli ve güvenilir çözümler
+                        sunuyoruz.
+                    </p>
+
+                </div>
+
+
+                <!-- MENÜ -->
+
+                <div class="col-12 col-md-3">
+
+                    <h5>
+                        Menü
+                    </h5>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a asp-controller="Home"
+                               asp-action="Index">
+                                Anasayfa
+                            </a>
+                        </li>
+
+                        <li>
+                            <a asp-controller="Services"
+                               asp-action="Index">
+                                Hizmetlerimiz
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Rezervasyon
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Servis & Bakım
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                İletişim
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- İLETİŞİM -->
+
+                <div class="col-12 col-md-3">
+
+                    <h5>
+                        İletişim
+                    </h5>
+
+                    <p>
+                        <i class="bi bi-telephone"></i>
+                        0535 XXX XX XX
+                    </p>
+
+                    <p>
+                        <i class="bi bi-envelope"></i>
+                        info@kurtotomotiv.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="text-center">
+
+                <p class="copyright">
+                    © @DateTime.Now.Year Kurt Otomotiv.
+                    Tüm hakları saklıdır.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

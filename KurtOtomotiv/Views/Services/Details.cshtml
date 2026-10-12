@@ -1,0 +1,237 @@
+﻿@model KurtOtomotiv.Models.ServiceViewModel
+
+@{
+    ViewData["Title"] = "Oto Servis";
+}
+
+<section class="service-detail-page">
+
+    <!-- ÜST ALAN -->
+    <div class="service-detail-header">
+        <div class="container">
+
+            <a asp-controller="Services"
+               asp-action="Index"
+               class="back-to-services">
+
+                <i class="bi bi-arrow-left"></i>
+                Tüm Hizmetler
+
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- HİZMET İÇERİĞİ -->
+    <section class="service-detail-content">
+
+        <div class="container">
+
+            <div class="row g-5 align-items-center">
+
+                <!-- GÖRSEL -->
+                <div class="col-12 col-lg-6">
+
+                    <div class="service-detail-image">
+
+                        <img src="@Model.ImageUrl"
+                             alt="@Model.Title">
+
+                    </div>
+
+                </div>
+
+
+                <!-- BAŞLIK / AÇIKLAMA -->
+                <div class="col-12 col-lg-6">
+
+                    <span class="section-small-title">
+                        KURT OTOMOTİV
+                    </span>
+
+                    <h1 class="service-detail-title">
+                        @Model.Title
+                    </h1>
+
+                    <p class="service-detail-description">
+                        @Model.Description
+                    </p>
+
+                    <a href="#"
+                       class="detail-cta-button">
+
+                        Servis Randevusu Al
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- YAPILAN İŞLEMLER -->
+    <section class="service-detail-features">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <span class="section-small-title">
+                    SERVİS VE BAKIM
+                </span>
+
+                <h2 class="section-title">
+                    Yaptığımız İşlemler
+                </h2>
+
+                <p class="section-description">
+                    Aracınızın ihtiyaçlarına yönelik sunduğumuz
+                    temel servis ve bakım işlemleri.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                @foreach (var feature in Model.Features)
+                {
+                    <div class="col-12 col-md-6">
+
+                        <div class="feature-item">
+
+                            <div class="feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+
+                            <div>
+                                <h3>
+                                    @feature
+                                </h3>
+
+                                <p>
+                                    Aracınızın güvenli ve sorunsuz kullanımı
+                                    için gerekli kontrol ve servis işlemi.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEDEN BİZ -->
+    <section class="why-us-section">
+
+        <div class="container">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-12 col-lg-6">
+
+                    <span class="section-small-title">
+                        KURT OTOMOTİV
+                    </span>
+
+                    <h2 class="section-title text-start">
+                        Neden Bizi Tercih Etmelisiniz?
+                    </h2>
+
+                    <p class="why-us-text">
+                        Aracınızın bakım ve servis işlemlerinde
+                        güvenilir, şeffaf ve profesyonel bir hizmet
+                        sunmayı amaçlıyoruz.
+                    </p>
+
+                </div>
+
+
+                <div class="col-12 col-lg-6">
+
+                    <div class="why-us-list">
+
+                        <div class="why-us-item">
+                            <i class="bi bi-check-circle"></i>
+                            <span>
+                                Profesyonel servis hizmeti
+                            </span>
+                        </div>
+
+                        <div class="why-us-item">
+                            <i class="bi bi-check-circle"></i>
+                            <span>
+                                Deneyimli ekip
+                            </span>
+                        </div>
+
+                        <div class="why-us-item">
+                            <i class="bi bi-check-circle"></i>
+                            <span>
+                                Şeffaf servis süreci
+                            </span>
+                        </div>
+
+                        <div class="why-us-item">
+                            <i class="bi bi-check-circle"></i>
+                            <span>
+                                Müşteri memnuniyeti odaklı hizmet
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ALT RANDEVU -->
+    <section class="service-detail-cta">
+
+        <div class="container">
+
+            <div class="service-detail-cta-box">
+
+                <div>
+                    <h2>
+                        Aracınız için servis desteğine mi ihtiyacınız var?
+                    </h2>
+
+                    <p>
+                        Size uygun tarih ve saati seçerek randevunuzu
+                        oluşturabilirsiniz.
+                    </p>
+                </div>
+
+                <a href="#"
+                   class="detail-cta-button white">
+
+                    Randevu Al
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>

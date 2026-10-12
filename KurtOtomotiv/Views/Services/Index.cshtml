@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "Hizmetlerimiz";
+}
+
+<section class="services-page">
+
+    <!-- SAYFA BAŞLIĞI -->
+    <div class="services-page-header">
+        <div class="container text-center">
+
+            <span class="section-small-title">
+                KURT OTOMOTİV
+            </span>
+
+            <h1 class="section-title">
+                Hizmetlerimiz
+            </h1>
+
+            <p class="section-description">
+                Aracınızın bakım, onarım ve servis ihtiyaçları için
+                profesyonel ve güvenilir çözümler sunuyoruz.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- HİZMETLER -->
+    <section class="services-list">
+        <div class="container">
+
+            <div class="row g-4">
+
+                <!-- OTO SERVİS -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="service-page-card">
+
+                        <div class="service-page-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+
+                        <h2>
+                            Oto Servis
+                        </h2>
+
+                        <p>
+                            Aracınızın mekanik bakım ve onarım işlemlerini
+                            uzman ekibimizle gerçekleştiriyoruz.
+                        </p>
+
+                        <ul class="service-features">
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Mekanik bakım ve onarım
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Genel araç kontrolleri
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Arıza tespiti
+                            </li>
+                        </ul>
+
+                        <a asp-controller="Services"
+                           asp-action="Details"
+                           asp-route-id="1"
+                           class="service-detail-btn">
+
+                            Detaylı Bilgi
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ARAÇ BAKIMI -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="service-page-card">
+
+                        <div class="service-page-icon">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+
+                        <h2>
+                            Araç Bakımı
+                        </h2>
+
+                        <p>
+                            Aracınızın güvenli ve uzun ömürlü olması için
+                            kapsamlı bakım hizmetleri sunuyoruz.
+                        </p>
+
+                        <ul class="service-features">
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Periyodik bakım
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Yağ ve filtre kontrolleri
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Genel bakım kontrolleri
+                            </li>
+                        </ul>
+
+                        <a asp-controller="Services"
+                           asp-action="Details"
+                           asp-route-id="2"
+                           class="service-detail-btn">
+
+                            Detaylı Bilgi
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RANDEVU -->
+                <div class="col-12 col-md-6 col-lg-4">
+
+                    <div class="service-page-card">
+
+                        <div class="service-page-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+
+                        <h2>
+                            Servis Randevusu
+                        </h2>
+
+                        <p>
+                            Size uygun tarih ve saati seçerek servis
+                            randevunuzu kolayca oluşturabilirsiniz.
+                        </p>
+
+                        <ul class="service-features">
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Tarih ve saat seçimi
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Servis talebi oluşturma
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check2"></i>
+                                Kolay randevu işlemi
+                            </li>
+                        </ul>
+
+                        <a href="#"
+                           class="service-detail-btn">
+
+                            Randevu Al
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ALT ÇAĞRI -->
+    <section class="services-bottom-cta">
+
+        <div class="container">
+
+            <div class="services-cta-box">
+
+                <div>
+                    <span>
+                        Aracınız için profesyonel destek mi gerekiyor?
+                    </span>
+
+                    <h2>
+                        Servis randevunuzu hemen oluşturun.
+                    </h2>
+                </div>
+
+                <a href="#"
+                   class="cta-button">
+
+                    Randevu Al
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</section>

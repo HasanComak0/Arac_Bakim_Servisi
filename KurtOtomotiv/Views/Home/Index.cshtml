@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<!-- HERO / SLIDER -->
+<section class="hero">
+    <div id="heroCarousel"
+         class="carousel slide carousel-fade"
+         data-bs-ride="carousel"
+         data-bs-interval="4000">
+
+        <div class="carousel-indicators">
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"></button>
+
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R07LK6uxtUnxC7wdxFEeQfsbFj7ifuMAv59lT_hIfPdmcxZ_6RzylSFItMQe6pmkvjg5OBuKmulrhVL9OeYNEw9BPnxxGdDdAYzF1nR3ldcK91BL2VAyqbrNDHunrQZNB_xRemWarKdzOl=s1360-w1360-h1020-rw"
+                     class="d-block w-100"
+                     alt="Kurt Otomotiv">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QY9SWJVeMk-UmFB2GEx2nrrOMmUIzaX-F7kuT6-e9MmiUfogx2i4w0u88mY0x3SdU5_CkIyekc4BPNJljCkrTjEsRe6nidV0zd_Ie6ouyvQYXgnqPDEgEy3MY84dJRHzuBpEm6iPDX6NpP=s1360-w1360-h1020-rw"
+                     class="d-block w-100"
+                     alt="Kurt Otomotiv Servis">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tq2Hjjtdd14t6ROo8rVU5xctKQa6B-QZ9lUvS-DC_AMnOGOe8eYhlcsxVgz8FAgB2ag8SSPB1ZIC2H1-yOIXMZgpH1yvWWgi4cBsn7pE2p0fEjZfpUwkQaJmG0BRJ4daEbQQeGKHmXXSw=s1360-w1360-h1020-rw"
+                     class="d-block w-100"
+                     alt="Kurt Otomotiv">
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"
+                  aria-hidden="true"></span>
+
+            <span class="visually-hidden">Önceki</span>
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"
+                  aria-hidden="true"></span>
+
+            <span class="visually-hidden">Sonraki</span>
+        </button>
+
+    </div>
+</section>
+
+
+<!-- HİZMETLER -->
+<section class="services py-5">
+
+    <div class="container">
+
+        <!-- BAŞLIK -->
+        <div class="text-center mb-5">
+
+            <span class="section-small-title">
+                KURT OTOMOTİV
+            </span>
+
+            <h2 class="section-title">
+                Hizmetlerimiz
+            </h2>
+
+            <p class="section-description">
+                Aracınızın bakım, onarım ve servis ihtiyaçları için
+                profesyonel çözümler sunuyoruz.
+            </p>
+
+        </div>
+
+
+        <!-- HİZMET KARTLARI -->
+        <div class="row g-4">
+
+            <!-- 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-tools"></i>
+                    </div>
+
+                    <h3>
+                        Oto Servis
+                    </h3>
+
+                    <p>
+                        Aracınızın mekanik bakım ve onarım işlemlerini
+                        uzman ekibimizle gerçekleştiriyoruz.
+                    </p>
+
+                    <a asp-controller="Services"
+                       asp-action="Details"
+                       asp-route-id="1"
+                       class="service-link">
+
+                        Detaylı Bilgi
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-car-front"></i>
+                    </div>
+
+                    <h3>
+                        Araç Bakımı
+                    </h3>
+
+                    <p>
+                        Aracınızın güvenli ve uzun ömürlü olması için
+                        kapsamlı bakım hizmetleri sunuyoruz.
+                    </p>
+
+                    <a asp-controller="Services"
+                       asp-action="Details"
+                       asp-route-id="2"
+                       class="service-link">
+
+                        Detaylı Bilgi
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+
+                    <h3>
+                        Servis Randevusu
+                    </h3>
+
+                    <p>
+                        Size uygun tarih ve saati seçerek servis
+                        randevunuzu kolayca oluşturabilirsiniz.
+                    </p>
+
+                    <a asp-controller="Reservation"
+                       asp-action="Index"
+                       class="service-link">
+
+                        Randevu Al
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TÜM HİZMETLER -->
+        <div class="text-center mt-5">
+
+            <a asp-controller="Services"
+               asp-action="Index"
+               class="all-services-btn">
+
+                Tüm Hizmetleri Gör
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,17 @@
+﻿namespace KurtOtomotiv.Models
+{
+    public class ServiceViewModel
+    {
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string ShortDescription { get; set; }
+
+        public string Description { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public List<string> Features { get; set; }
+    }
+}
