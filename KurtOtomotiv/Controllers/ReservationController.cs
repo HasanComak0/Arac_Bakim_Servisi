@@ -1,17 +1,25 @@
 ﻿using KurtOtomotiv.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.NetworkInformation;
 
 namespace KurtOtomotiv.Controllers
 {
     public class ReservationController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public ReservationController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(ReservationViewModel model)
+        public async Task<IActionResult> Create(ReservationViewModel model)
         {
             if(model.PreferredDate is not null && model.PreferredDate.Value.Date < DateTime.Today)
             {
@@ -22,7 +30,25 @@ namespace KurtOtomotiv.Controllers
             {
                 return View("Index",model);
             }
-            return Content(model.FullName);
+
+            var reservation = new Reservation
+            {
+                FullName = model.FullName,
+                Phone = model.Phone,
+                VehicleBrand = model.VehicleBrand,
+                VehicleModel = model.VehicleModel,
+                Plate = model.Plate,
+                ServiceType = model.ServiceType,
+                PreferredDate = model.PreferredDate.Value,
+                Message = model.Message
+            };
+
+            _context.Reservations.Add(reservation);
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Rezervasyon talebiniz başarıyla kaydedildi.";
+
+            return RedirectToAction("Index");
         }
     }
 }
