@@ -1,5 +1,6 @@
 ﻿using KurtOtomotiv.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Net.NetworkInformation;
 
 namespace KurtOtomotiv.Controllers
@@ -49,6 +50,13 @@ namespace KurtOtomotiv.Controllers
             TempData["SuccessMessage"] = "Rezervasyon talebiniz başarıyla kaydedildi.";
 
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> List()
+        {
+            var reservations = await _context.Reservations.ToListAsync();
+
+            return View(reservations);
         }
     }
 }
